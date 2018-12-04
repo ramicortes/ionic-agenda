@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary"  text-center>
+    <ion-title>
+      Editar Contacto
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="deleteContact()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="openModal()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-list>
+     <ion-item>
+       <ion-label floating>Nombre y Apellido</ion-label>
+       <ion-input  [(ngModel)]=name type="text"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label floating>Telefono Principal</ion-label>
+       <ion-input  [(ngModel)]=firstNumber type="text"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label floating>Telefono Alternativo</ion-label>
+       <ion-input  [(ngModel)]=altNumber type="text"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label floating>Email</ion-label>
+       <ion-input  [(ngModel)]=email type="mail"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label>Tipo de Contacto</ion-label>
+       <ion-select [(ngModel)]="type">
+         <ion-option *ngFor="let type of types" [value] = "type">{{type}}</ion-option>
+      </ion-select>
+    </ion-item>
+</ion-list>
+
+  <ion-fab bottom right >
+     <button ion-fab color="primary" (click)="editContact()"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>
