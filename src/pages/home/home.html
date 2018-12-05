@@ -5,8 +5,8 @@
       Mis Contactos
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="openModal()">
-        <ion-icon name="menu"></ion-icon>
+      <button ion-button icon-only (click)="openSettings()">
+        <ion-icon name="settings"></ion-icon>
       </button>
     </ion-buttons>
 
@@ -14,7 +14,7 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-  <ion-searchbar
+  <ion-searchbar class="dark"
   [(ngModel)]="searchInput"
   [showCancelButton]="shouldShowCancel"
   [formControl]="searchControl"
@@ -27,12 +27,12 @@
 
    <ion-list>
      <ion-card *ngFor="let contact of contacts" (click)="editContact(contact)">
-         <ion-item>
+         <ion-item class="dark">
            <ion-avatar item-start>
              <img src="../../assets/imgs/default-user.png">
            </ion-avatar>
-           <h2>{{contact.getName()}} <h2 style="float: right" name="add">{{contact.getTypeInitial()}}</h2></h2>
-           <p>{{contact.getFirstNumber()}}</p>
+           <h2 class="dark-content">{{contact.getName()}} <h2 class="dark-content" style="float: right" name="add">{{contact.getTypeInitial()}}</h2></h2>
+           <p class="dark-content">{{contact.getFirstNumber()}}</p>
          </ion-item>
      </ion-card>
   </ion-list>
@@ -40,7 +40,7 @@
   <!-- <button ion-fab color="secondary" (click)="addContact()"><ion-icon name="add"></ion-icon></button> -->
 
 
-  <ion-fab bottom right >
+  <ion-fab bottom right>
      <button ion-fab color="primary" (click)="addContact()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {FormControl} from '@angular/forms';
 import {NewContactPage} from '../new-contact/new-contact';
 import {EditContactPage} from '../edit-contact/edit-contact';
+import {SettingsPage} from '../settings/settings';
 import {Contact} from '../../app/model/contact';
 import {ContactProvider} from '../../providers/contact/contact';
 import {DataProvider} from '../../providers/data/data';
@@ -43,6 +44,10 @@ export class HomePage {
 
   editContact(contact: Contact){
     this.navCtrl.push(EditContactPage, {contact: contact });
+  }
+
+  openSettings(){
+    this.navCtrl.push(SettingsPage);
   }
 
   printContacts(){

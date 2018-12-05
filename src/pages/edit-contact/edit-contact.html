@@ -4,11 +4,8 @@
       Editar Contacto
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="deleteContact()">
+      <button ion-button icon-only (click)="deleteContactConfirmation()">
         <ion-icon name="trash"></ion-icon>
-      </button>
-      <button ion-button icon-only (click)="openModal()">
-        <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -41,7 +38,7 @@
 </ion-list>
 
   <ion-fab bottom right >
-     <button ion-fab color="primary" (click)="editContact()"><ion-icon name="checkmark"></ion-icon></button>
+     <button ion-fab color="primary" (click)="editContactConfirmation()"><ion-icon name="checkmark"></ion-icon></button>
   </ion-fab>
 
 </ion-content>

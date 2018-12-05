@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from 'ionic-angular';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Contact} from '../../app/model/contact';
 import {ContactProvider} from '../../providers/contact/contact';
@@ -25,7 +26,7 @@ export class EditContactPage {
   email:string="";
   type:string="";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private contactProvider: ContactProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private contactProvider: ContactProvider, private alertCtrl: AlertController) {
     this.contact = this.navParams.get('contact');
     this.name=this.contact.getName();
     this.firstNumber=this.contact.getFirstNumber();
@@ -46,6 +47,50 @@ export class EditContactPage {
   deleteContact(){
     this.contactProvider.removeByAttr('id', this.contact.getId());
     this.navCtrl.pop();
+  }
+
+  editContactConfirmation() {
+    let alert = this.alertCtrl.create({
+      title: 'Editar Contacto',
+      message: 'Desea confirmar la edición?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancelar',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Confirmar',
+          handler: () => {
+            this.editContact();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  deleteContactConfirmation() {
+    let alert = this.alertCtrl.create({
+      title: 'Eliminar Contacto',
+      message: 'Desea eliminar este contacto?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancelar',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Confirmar',
+          handler: () => {
+            this.deleteContact();
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

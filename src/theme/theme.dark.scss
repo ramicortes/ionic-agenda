@@ -1,0 +1,29 @@
+.dark-theme {
+  ion-content {
+    background-color: #000000;
+    color: #fff;
+  }
+
+  .toolbar-title {
+    color: #fff;
+  }
+
+  .header .toolbar-background {
+    border-color: #ff0fff;
+    background-color: #15202B;
+    color: #fff;
+  }
+
+  .dark-content {
+    color: white;
+  }
+
+  ion-input, ,ion-select {
+    color: white;
+  }
+
+  ion-item, .scroll-content {
+    background-color: #15202B;
+  }
+
+}
